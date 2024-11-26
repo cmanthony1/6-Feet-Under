@@ -60,8 +60,10 @@ public class Enemy : MonoBehaviour
             // Instantiate the projectile
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
-            // Calculate direction to the player
-            Vector2 direction = (player.position - firePoint.position).normalized;
+            // Calculate direction to the player, restricted to horizontal (x-axis)
+            Vector2 direction = (player.position - firePoint.position);
+            direction.y = 0; // Restrict to horizontal
+            direction.Normalize(); // Normalize the resulting vector
 
             // Ensure the projectile faces the correct direction
             projectile.transform.right = direction;
@@ -88,7 +90,6 @@ public class Enemy : MonoBehaviour
     void TakeDamage()
     {
         Debug.Log("TakeDamage");
-        //health == 2;
         health -= 1;
         if (health <= 0)
         {

@@ -12,8 +12,8 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject); // Destroy the bullet if it leaves the screen
-    }
+    //private void OnBecameInvisible()
+   // {
+   //     Destroy(gameObject); // Destroy the bullet if it leaves the screen
+   // }
 }
