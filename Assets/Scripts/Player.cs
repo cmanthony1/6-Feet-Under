@@ -22,19 +22,25 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        // Movement
+        // Update slider smoothly each frame
+        if (healthSlider != null)
+        {
+            healthSlider.value = Mathf.Lerp(healthSlider.value, Health, Time.deltaTime * 10f);
+        }
+
+        // Other update logic (movement, shooting, etc.)
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
 
         if (!Mathf.Approximately(movement, 0))
             transform.rotation = movement < 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
 
-        // Shooting
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
     }
+
 
     void Shoot()
     {
@@ -69,11 +75,13 @@ public class Player : MonoBehaviour
     }
 
     void UpdateHealthSlider()
-{
-    if (healthSlider != null)
     {
-        healthSlider.value = Mathf.Lerp(healthSlider.value, Health, Time.deltaTime * 10f);
+        if (healthSlider != null)
+        {
+            // Immediately update the slider to match the health
+            healthSlider.value = Health;
+        }
     }
-}
+
 
 }
