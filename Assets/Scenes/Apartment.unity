@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 876344958}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -694,7 +694,7 @@ Transform:
   m_GameObject: {fileID: 876344953}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.84, y: -3.06, z: 0}
+  m_LocalPosition: {x: 0.15, y: -2.9, z: 0}
   m_LocalScale: {x: 1.15, y: 2.847481, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ce74e0acf6a3c438a2b4587976c7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Street
+  targetScene: Street
 --- !u!1 &2071895696
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,46 +3,45 @@ using UnityEngine.SceneManagement;
 
 public class DoorInteraction : MonoBehaviour
 {
-    public string sceneToLoad; // Target scene name
-    private bool isPlayerNearDoor = false; // Tracks if the player is near the door
+    [SerializeField] private string targetScene; // Scene to load
 
-    private void Update()
-    {
-        // Detect 'E' key press when near the door
-        if (isPlayerNearDoor && Input.GetKeyDown(KeyCode.E))
-        {
-            LoadNextScene();
-        }
-    }
+    private BoxCollider2D boxCollider;
 
-    private void LoadNextScene()
+    private void Awake()
     {
-        if (!string.IsNullOrEmpty(sceneToLoad))
+        // Ensure the BoxCollider2D is set as a trigger
+        boxCollider = GetComponent<BoxCollider2D>();
+        if (boxCollider == null)
         {
-            Debug.Log($"Transitioning to scene: {sceneToLoad}");
-            SceneManager.LoadScene(sceneToLoad);
+            Debug.LogError("BoxCollider2D is missing on the door object!");
         }
         else
         {
-            Debug.LogWarning("Scene name not set for this door!");
+            boxCollider.isTrigger = true; // Ensure it's a trigger
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
         {
-            isPlayerNearDoor = true;
-            Debug.Log("Player is near the door. Press 'E' to enter.");
+            Debug.Log($"Loading scene: {targetScene}");
+            if (!string.IsNullOrEmpty(targetScene))
+            {
+                SceneManager.LoadScene(targetScene);
+            }
+            else
+            {
+                Debug.LogWarning("Target scene is not set.");
+            }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            isPlayerNearDoor = false;
-            Debug.Log("Player left the door area.");
+            Debug.Log("Player entered the door trigger zone.");
         }
     }
 }

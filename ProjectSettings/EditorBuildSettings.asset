@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 53df33622ce529f448ceb1849553b9f0
   - enabled: 1
-    path: Assets/Scenes/Charater Apartment.unity
+    path: Assets/Scenes/Apartment.unity
     guid: 6e08e090b0d55994a8195ac4745c6e73
   - enabled: 1
     path: Assets/Scenes/Street.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 9404bd9899f4db242a9e85ad87a09f76
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: 0f70814be5e0a7b40920073d95a08114
   m_configObjects: {}
