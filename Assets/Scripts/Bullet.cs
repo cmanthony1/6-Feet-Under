@@ -12,8 +12,15 @@ public class Bullet : MonoBehaviour
         rb.velocity = transform.right * speed;
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Destroy the bullet when it collides with any collider
+        Destroy(gameObject);
+    }
+
+    // Uncomment if you want the bullet to be destroyed when it leaves the screen
     //private void OnBecameInvisible()
-   // {
-   //     Destroy(gameObject); // Destroy the bullet if it leaves the screen
-   // }
+    //{
+    //    Destroy(gameObject);
+    //}
 }
