@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     private int currentReserveAmmo; // Current ammo in reserve
     public TMP_Text ammoText;       // Reference to the TMP UI text for ammo
 
+    private Vector3 originalScale;  // To store the original scale of the player
+    private bool isCrouching = false; // To track crouching state
+
     private void Start()
     {
         // Initialize the health slider
@@ -30,6 +33,9 @@ public class Player : MonoBehaviour
         currentChamberAmmo = MaxChamberAmmo;
         currentReserveAmmo = MaxReserveAmmo;
         UpdateAmmoText();
+
+        // Store the original scale of the player
+        originalScale = transform.localScale;
     }
 
     private void Update()
@@ -40,15 +46,25 @@ public class Player : MonoBehaviour
             healthSlider.value = Mathf.Lerp(healthSlider.value, Health, Time.deltaTime * 10f);
         }
 
+        // Handle crouching
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            StartCrouching();
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            StopCrouching();
+        }
+
+        // If crouching, disable movement and shooting
+        if (isCrouching) return;
+
         // Movement logic
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
 
         if (!Mathf.Approximately(movement, 0))
             transform.rotation = movement < 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
-
-        // Prevent shooting when Left Control key is pressed
-        if (Input.GetKey(KeyCode.LeftControl)) return;
 
         // Shooting with left mouse button (only) and when ammo is available
         if (Input.GetMouseButtonDown(0) && currentChamberAmmo > 0) // Left Mouse Button and ammo check
@@ -61,6 +77,23 @@ public class Player : MonoBehaviour
         {
             Reload();
         }
+    }
+
+    void StartCrouching()
+    {
+        isCrouching = true;
+        transform.localScale = new Vector3(originalScale.x, originalScale.y / 2, originalScale.z);
+    }
+
+    void StopCrouching()
+    {
+        isCrouching = false;
+        transform.localScale = originalScale;
+    }
+
+    public bool IsCrouching()
+    {
+        return isCrouching;
     }
 
     void Shoot()
@@ -88,8 +121,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    void TakeDamage()
+    public void TakeDamage()
     {
+        if (isCrouching)
+        {
+            Debug.Log("Player is crouching, no damage taken.");
+            return;
+        }
+
         Debug.Log("TakeDamage");
 
         Health -= 1;
@@ -137,6 +176,7 @@ public class Player : MonoBehaviour
             Debug.Log("No ammo left in reserve!");
         }
     }
+
     public void RefillAmmo(int chamberAmount, int reserveAmount)
     {
         // Refill the chamber ammo (but do not exceed max chamber capacity)
@@ -147,5 +187,4 @@ public class Player : MonoBehaviour
 
         UpdateAmmoText(); // Update the ammo display
     }
-
 }
