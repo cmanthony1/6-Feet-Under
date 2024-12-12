@@ -17,8 +17,14 @@ public class Player : MonoBehaviour
     private int currentReserveAmmo; // Current ammo in reserve
     public TMP_Text ammoText;       // Reference to the TMP UI text for ammo
 
+    public AudioClip gunFireSound;  // Sound effect for gun firing
+    public AudioClip outOfAmmoSound; // Sound effect for out of ammo
+    public AudioClip reloadSound;   // Sound effect for reloading
+    private AudioSource audioSource; // Audio source component
+
     private Vector3 originalScale;  // To store the original scale of the player
     private bool isCrouching = false; // To track crouching state
+    private Evidence nearbyEvidence; // Reference to nearby evidence
 
     private void Start()
     {
@@ -36,6 +42,13 @@ public class Player : MonoBehaviour
 
         // Store the original scale of the player
         originalScale = transform.localScale;
+
+        // Get the AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     private void Update()
@@ -67,15 +80,30 @@ public class Player : MonoBehaviour
             transform.rotation = movement < 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
 
         // Shooting with left mouse button (only) and when ammo is available
-        if (Input.GetMouseButtonDown(0) && currentChamberAmmo > 0) // Left Mouse Button and ammo check
+        if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            if (currentChamberAmmo > 0)
+            {
+                Shoot();
+            }
+            else
+            {
+                PlayOutOfAmmoSound();
+            }
         }
 
         // Reloading
         if (Input.GetKeyDown(KeyCode.R))
         {
             Reload();
+        }
+
+        // Check if the player presses the 'E' key
+        if (Input.GetKeyDown(KeyCode.E) && nearbyEvidence != null)
+        {
+            // Collect the nearby evidence
+            nearbyEvidence.Collect();
+            nearbyEvidence = null;
         }
     }
 
@@ -104,10 +132,33 @@ public class Player : MonoBehaviour
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             currentChamberAmmo--;
             UpdateAmmoText();
+
+            // Play gun fire sound
+            PlayGunFireSound();
         }
-        else
+    }
+
+    private void PlayGunFireSound()
+    {
+        if (gunFireSound != null && audioSource != null)
         {
-            Debug.Log("Out of ammo in the chamber! Reload!");
+            audioSource.PlayOneShot(gunFireSound);
+        }
+    }
+
+    private void PlayOutOfAmmoSound()
+    {
+        if (outOfAmmoSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(outOfAmmoSound);
+        }
+    }
+
+    private void PlayReloadSound()
+    {
+        if (reloadSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(reloadSound);
         }
     }
 
@@ -118,6 +169,23 @@ public class Player : MonoBehaviour
         {
             TakeDamage();
             Destroy(collision.gameObject); // Destroy the bullet on impact
+        }
+
+        // Check if the object has the Evidence script
+        Evidence evidence = collision.GetComponent<Evidence>();
+        if (evidence != null)
+        {
+            nearbyEvidence = evidence;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Clear the reference when the player leaves the trigger
+        Evidence evidence = collision.GetComponent<Evidence>();
+        if (evidence != null && evidence == nearbyEvidence)
+        {
+            nearbyEvidence = null;
         }
     }
 
@@ -170,6 +238,9 @@ public class Player : MonoBehaviour
             currentReserveAmmo -= ammoToReload;
 
             UpdateAmmoText();
+
+            // Play reload sound
+            PlayReloadSound();
         }
         else if (currentReserveAmmo == 0)
         {
