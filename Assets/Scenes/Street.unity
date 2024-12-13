@@ -374,6 +374,54 @@ MonoBehaviour:
   FollowSpeed: 5
   target: {fileID: 1407078594}
   yOffset: 3
+--- !u!1 &873657477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 873657479}
+  - component: {fileID: 873657478}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &873657478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873657477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401d03ce23d40804b8e9d3a7236b6870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip1: {fileID: 8300000, guid: 7cf7e968f7291634493ce415e38f3378, type: 3}
+  audioClip2: {fileID: 0}
+  volume1: 0.452
+  volume2: 1
+--- !u!4 &873657479
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873657477}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 45.63805, y: 4.209365, z: -0.31289512}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087147397
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +880,9 @@ MonoBehaviour:
   MaxChamberAmmo: 6
   MaxReserveAmmo: 12
   ammoText: {fileID: 0}
+  gunFireSound: {fileID: 0}
+  outOfAmmoSound: {fileID: 0}
+  reloadSound: {fileID: 0}
 --- !u!50 &1407078591
 Rigidbody2D:
   serializedVersion: 4
@@ -1934,3 +1985,4 @@ SceneRoots:
   - {fileID: 1990879222}
   - {fileID: 140197453}
   - {fileID: 1438826002}
+  - {fileID: 873657479}

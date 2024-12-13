@@ -122,6 +122,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &19415860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19415862}
+  - component: {fileID: 19415861}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &19415861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19415860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 401d03ce23d40804b8e9d3a7236b6870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip1: {fileID: 8300000, guid: e550884a96910014aafd8fc29df452e5, type: 3}
+  audioClip2: {fileID: 8300000, guid: 1fa8f05971b3e1d4ca158e88cd88ba74, type: 3}
+  volume1: 0.215
+  volume2: 0.124
+--- !u!4 &19415862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19415860}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &87701028
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +339,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 871719579004683188, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
   firePoint: {fileID: 1783778758}
   timeBetweenShots: 2
-  health: 2
+  health: 10
 --- !u!212 &95885886
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -812,7 +860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.000030518, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &263418152
@@ -1139,10 +1187,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1052869854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -681.8893, y: -451.71515}
-  m_SizeDelta: {x: 556.2215, y: 176.5696}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 278.11072, y: 88.28485}
+  m_SizeDelta: {x: 556.2215, y: 176.56958}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &423073022
 MonoBehaviour:
@@ -1454,10 +1502,10 @@ RectTransform:
   - {fileID: 163871985}
   m_Father: {fileID: 1052869854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -712, y: 453}
-  m_SizeDelta: {x: 450.1022, y: 139.7841}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 248, y: -87}
+  m_SizeDelta: {x: 450.1022, y: 139.78412}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &580096435
 MonoBehaviour:
@@ -1594,7 +1642,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 871719579004683188, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
   firePoint: {fileID: 635922707}
   timeBetweenShots: 2
-  health: 2
+  health: 10
 --- !u!212 &631104993
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3414,7 +3462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -0.000030518, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1332062558
@@ -4423,7 +4471,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 871719579004683188, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
   firePoint: {fileID: 666059030}
   timeBetweenShots: 2
-  health: 2
+  health: 10
 --- !u!212 &1573956574
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4805,7 +4853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.000030518, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2059761186
@@ -4930,7 +4978,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 871719579004683188, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
   firePoint: {fileID: 723763614}
   timeBetweenShots: 2
-  health: 2
+  health: 10
 --- !u!212 &2138985536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5095,6 +5143,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 19415862}
   - {fileID: 263418155}
   - {fileID: 157554849}
   - {fileID: 653707197}
