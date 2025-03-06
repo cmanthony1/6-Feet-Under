@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI; // Required for working with UI components
 using TMPro; // Required for working with TextMeshPro
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -205,8 +206,13 @@ public class Player : MonoBehaviour
 
         if (Health <= 0)
         {
-            Destroy(gameObject); // Destroy the player
+            ReloadScene(); // Call the method to reload the scene
         }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void UpdateHealthSlider()

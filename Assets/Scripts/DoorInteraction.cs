@@ -6,6 +6,7 @@ public class DoorInteraction : MonoBehaviour
     [SerializeField] private string targetScene; // Scene to load
 
     private BoxCollider2D boxCollider;
+    private bool playerInTrigger = false; // Track if player is in trigger zone
 
     private void Awake()
     {
@@ -21,9 +22,9 @@ public class DoorInteraction : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void Update()
     {
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.E))
+        if (playerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log($"Loading scene: {targetScene}");
             if (!string.IsNullOrEmpty(targetScene))
@@ -41,7 +42,17 @@ public class DoorInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            playerInTrigger = true;
             Debug.Log("Player entered the door trigger zone.");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInTrigger = false;
+            Debug.Log("Player exited the door trigger zone.");
         }
     }
 }

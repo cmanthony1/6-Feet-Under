@@ -9,24 +9,35 @@ public class Enemy : MonoBehaviour
     public float retreatDistance;
 
     public Transform player;
-
     public GameObject projectilePrefab; // The projectile prefab to be instantiated
     public Transform firePoint;         // The point from where projectiles will be fired
     public float timeBetweenShots = 2f; // Time interval between shots
     private float shotTimer;            // Timer to manage shooting intervals
-
     public int health = 3; // Enemy health
 
-    // Start is called before the first frame update
+    public GameObject door; // Reference to the door object
+    private bool canAttack = false; // Determines if the enemy can attack
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         shotTimer = timeBetweenShots; // Initialize the timer
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Check if the door is destroyed
+        if (door == null)
+        {
+            canAttack = true;
+        }
+
+        // Prevent movement if the door is still present
+        if (!canAttack)
+        {
+            return;
+        }
+
         // Movement logic
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
@@ -41,7 +52,7 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
 
-        // Shooting logic
+        // Shooting logic (only if the door is destroyed)
         if (shotTimer <= 0)
         {
             ShootAtPlayer();
@@ -57,18 +68,12 @@ public class Enemy : MonoBehaviour
     {
         if (projectilePrefab != null && firePoint != null)
         {
-            // Instantiate the projectile
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-
-            // Calculate direction to the player, restricted to horizontal (x-axis)
             Vector2 direction = (player.position - firePoint.position);
             direction.y = 0; // Restrict to horizontal
-            direction.Normalize(); // Normalize the resulting vector
-
-            // Ensure the projectile faces the correct direction
+            direction.Normalize();
             projectile.transform.right = direction;
 
-            // Apply velocity to the projectile
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
@@ -79,7 +84,6 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if hit by a bullet
         if (collision.CompareTag("Bullet"))
         {
             TakeDamage();
@@ -93,7 +97,7 @@ public class Enemy : MonoBehaviour
         health -= 1;
         if (health <= 0)
         {
-            Destroy(gameObject); // Destroy the enemy
+            Destroy(gameObject);
         }
     }
 }

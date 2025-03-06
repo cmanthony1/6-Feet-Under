@@ -7,17 +7,37 @@ public class CameraFollow : MonoBehaviour
     public float FollowSpeed = 2f;
     public Transform target;
     public float yOffset = 3f;
-    //public float xOffset = -3f;
-    // Start is called before the first frame update
+    private float fixedYPosition; // Store fixed Y position of camera
+    private bool allowFollow = true; // Allow camera to follow after teleportation
+
     void Start()
     {
-        
+        if (target != null)
+        {
+            fixedYPosition = target.position.y + yOffset; // Set initial Y position
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = new Vector3(target.position.x, target.position.y + yOffset, -10f);
-        transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed*Time.deltaTime);
+        if (target != null)
+        {
+            if (allowFollow)
+            {
+                fixedYPosition = target.position.y + yOffset; // Allow Y position updates when needed
+            }
+            Vector3 newPos = new Vector3(target.position.x, fixedYPosition, -10f);
+            transform.position = Vector3.Slerp(transform.position, newPos, FollowSpeed * Time.deltaTime);
+        }
+    }
+
+    public void AllowCameraFollow() // Call this method after teleportation
+    {
+        allowFollow = true;
+    }
+
+    public void LockCameraYPosition() // Call this method to lock camera Y when needed
+    {
+        allowFollow = false;
     }
 }

@@ -965,6 +965,7 @@ MonoBehaviour:
   firePoint: {fileID: 1709098534}
   timeBetweenShots: 2
   health: 2
+  door: {fileID: 0}
 --- !u!61 &487782511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2585,6 +2586,7 @@ MonoBehaviour:
   firePoint: {fileID: 1175328415}
   timeBetweenShots: 2
   health: 2
+  door: {fileID: 597142777}
 --- !u!61 &1253982285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2938,6 +2940,7 @@ MonoBehaviour:
   firePoint: {fileID: 590712813}
   timeBetweenShots: 2
   health: 2
+  door: {fileID: 0}
 --- !u!61 &1640373828
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3731,7 +3734,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &1951531911
