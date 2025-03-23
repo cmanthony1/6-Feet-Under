@@ -9,54 +9,48 @@ public class Enemy : MonoBehaviour
     public float retreatDistance;
 
     public Transform player;
-    public GameObject projectilePrefab; // The projectile prefab to be instantiated
-    public Transform firePoint;         // The point from where projectiles will be fired
-    public float timeBetweenShots = 2f; // Time interval between shots
-    private float shotTimer;            // Timer to manage shooting intervals
-    public int health = 3; // Enemy health
+    public GameObject projectilePrefab;
+    public Transform firePoint;
+    public float timeBetweenShots = 2f;
+    private float shotTimer;
+    public int health = 3;
 
-    public GameObject door; // Reference to the door object
-    private bool canAttack = false; // Determines if the enemy can attack
+    public GameObject door;
+    private bool canAttack = false;
+    private SpriteRenderer spriteRenderer;
 
-    void Start()
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        shotTimer = timeBetweenShots; // Initialize the timer
+        shotTimer = timeBetweenShots;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    private void Update()
     {
-        // Check if the door is destroyed
         if (door == null)
         {
             canAttack = true;
         }
 
-        // Prevent movement if the door is still present
         if (!canAttack)
         {
             return;
         }
 
-        // Movement logic
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
         }
         else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
 
-        // Shooting logic (only if the door is destroyed)
         if (shotTimer <= 0)
         {
             ShootAtPlayer();
-            shotTimer = timeBetweenShots; // Reset the timer
+            shotTimer = timeBetweenShots;
         }
         else
         {
@@ -64,20 +58,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void ShootAtPlayer()
+    private void ShootAtPlayer()
     {
         if (projectilePrefab != null && firePoint != null)
         {
             GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-            Vector2 direction = (player.position - firePoint.position);
-            direction.y = 0; // Restrict to horizontal
-            direction.Normalize();
+            Vector2 direction = (player.position - firePoint.position).normalized;
             projectile.transform.right = direction;
-
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.velocity = direction * 10f; // Adjust speed as necessary
+                rb.velocity = direction * 10f;
             }
         }
     }
@@ -86,18 +77,35 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
+            Destroy(collision.gameObject);
             TakeDamage();
-            Destroy(collision.gameObject); // Destroy the bullet on impact
         }
     }
 
-    void TakeDamage()
+    private void TakeDamage()
     {
         Debug.Log("TakeDamage");
         health -= 1;
+        StartCoroutine(DamageEffect());
+
         if (health <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator DamageEffect()
+    {
+        spriteRenderer.color = Color.red;
+        Vector3 originalPosition = transform.position;
+
+        for (int i = 0; i < 5; i++)
+        {
+            transform.position = originalPosition + (Vector3)Random.insideUnitCircle * 0.1f;
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        transform.position = originalPosition;
+        spriteRenderer.color = Color.white;
     }
 }

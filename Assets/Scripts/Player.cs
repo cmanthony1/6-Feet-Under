@@ -110,15 +110,28 @@ public class Player : MonoBehaviour
 
     void StartCrouching()
     {
-        isCrouching = true;
-        transform.localScale = new Vector3(originalScale.x, originalScale.y / 2, originalScale.z);
+        if (!isCrouching)
+        {
+            isCrouching = true;
+            transform.localScale = new Vector3(originalScale.x, originalScale.y / 2, originalScale.z);
+
+            // Move player down so they stay attached to the ground
+            transform.position -= new Vector3(0, originalScale.y / 4, 0);
+        }
     }
 
     void StopCrouching()
     {
-        isCrouching = false;
-        transform.localScale = originalScale;
+        if (isCrouching)
+        {
+            isCrouching = false;
+            transform.localScale = originalScale;
+
+            // Move player back up to original position
+            transform.position += new Vector3(0, originalScale.y / 4, 0);
+        }
     }
+
 
     public bool IsCrouching()
     {

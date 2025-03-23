@@ -10,15 +10,18 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // Prevents fast-moving bullets from passing through objects
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Destroy the bullet when it collides with any 2D collider
-        if (collision.collider is BoxCollider2D || collision.collider is CircleCollider2D)
+        // Ensure the bullet stops when hitting any Rigidbody2D object or BoxCollider2D
+        if (collision.rigidbody != null || collision.collider is BoxCollider2D)
         {
+            rb.velocity = Vector2.zero; // Stop movement immediately
             Destroy(gameObject);
         }
+
         // Check if the bullet collided with the player
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null)
@@ -31,9 +34,4 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    // Uncomment if you want the bullet to be destroyed when it leaves the screen
-    //private void OnBecameInvisible()
-    //{
-    //    Destroy(gameObject);
-    //}
 }

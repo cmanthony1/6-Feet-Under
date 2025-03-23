@@ -339,7 +339,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 871719579004683188, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
   firePoint: {fileID: 1783778758}
   timeBetweenShots: 2
-  health: 10
+  health: 5
   door: {fileID: 1476007377}
 --- !u!212 &95885886
 SpriteRenderer:
@@ -402,8 +402,8 @@ Transform:
   m_GameObject: {fileID: 95885884}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.65, y: -2.2476, z: 0}
-  m_LocalScale: {x: 1.7991126, y: 4.028294, z: 1}
+  m_LocalPosition: {x: 18.65, y: -2.6489, z: 0}
+  m_LocalScale: {x: 1.7991126, y: 3.225858, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1783778758}
@@ -1643,7 +1643,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 871719579004683188, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
   firePoint: {fileID: 635922707}
   timeBetweenShots: 2
-  health: 10
+  health: 6
   door: {fileID: 1745747647}
 --- !u!212 &631104993
 SpriteRenderer:
@@ -1706,8 +1706,8 @@ Transform:
   m_GameObject: {fileID: 631104990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.7, y: -11.8521, z: 0}
-  m_LocalScale: {x: -1.8716544, y: 3.8991437, z: 1}
+  m_LocalPosition: {x: 12.7, y: -12.3768, z: 0}
+  m_LocalScale: {x: -1.8716544, y: 2.8494942, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 635922707}
@@ -4473,7 +4473,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 871719579004683188, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
   firePoint: {fileID: 666059030}
   timeBetweenShots: 2
-  health: 10
+  health: 8
   door: {fileID: 0}
 --- !u!212 &1573956574
 SpriteRenderer:
@@ -4536,8 +4536,8 @@ Transform:
   m_GameObject: {fileID: 1573956570}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.59, y: -11.7775, z: 0}
-  m_LocalScale: {x: -1.8716544, y: 4.048718, z: 1}
+  m_LocalPosition: {x: 32.59, y: -12.0862, z: 0}
+  m_LocalScale: {x: -1.8716544, y: 3.4312885, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 666059030}
@@ -4981,7 +4981,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 871719579004683188, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
   firePoint: {fileID: 723763614}
   timeBetweenShots: 2
-  health: 8
+  health: 3
   door: {fileID: 570320326}
 --- !u!212 &2138985536
 SpriteRenderer:
@@ -5044,8 +5044,8 @@ Transform:
   m_GameObject: {fileID: 2138985533}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.7966, y: -2.3376, z: 0}
-  m_LocalScale: {x: 1.705187, y: 4.1283107, z: 1}
+  m_LocalPosition: {x: 32.7966, y: -2.7389, z: 0}
+  m_LocalScale: {x: 1.705187, y: 3.325767, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 723763614}
