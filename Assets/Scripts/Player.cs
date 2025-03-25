@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        // Update slider smoothly each frame
+        // Update health slider smoothly
         if (healthSlider != null)
         {
             healthSlider.value = Mathf.Lerp(healthSlider.value, Health, Time.deltaTime * 10f);
@@ -70,17 +70,18 @@ public class Player : MonoBehaviour
             StopCrouching();
         }
 
-        // If crouching, disable movement and shooting
-        if (isCrouching) return;
-
-        // Movement logic
+        // Movement logic (adjust speed when crouched)
+        float movementSpeedModifier = isCrouching ? 0.5f : 1f; // Reduce speed while crouching
         var movement = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
+        transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed * movementSpeedModifier;
 
+        // Rotate player sprite based on movement direction
         if (!Mathf.Approximately(movement, 0))
+        {
             transform.rotation = movement < 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+        }
 
-        // Shooting with left mouse button (only) and when ammo is available
+        // Shooting logic
         if (Input.GetMouseButtonDown(0))
         {
             if (currentChamberAmmo > 0)
@@ -99,14 +100,14 @@ public class Player : MonoBehaviour
             Reload();
         }
 
-        // Check if the player presses the 'E' key
+        // Collect evidence
         if (Input.GetKeyDown(KeyCode.E) && nearbyEvidence != null)
         {
-            // Collect the nearby evidence
             nearbyEvidence.Collect();
             nearbyEvidence = null;
         }
     }
+
 
     void StartCrouching()
     {
