@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI; // Required for working with UI components
 using TMPro; // Required for working with TextMeshPro
 using UnityEngine.SceneManagement;
+using System.Collections; // Required for IEnumerator (Coroutines)
+
 
 public class Player : MonoBehaviour
 {
@@ -215,14 +217,36 @@ public class Player : MonoBehaviour
         Debug.Log("TakeDamage");
 
         Health -= 1;
-        Health = Mathf.Clamp(Health, 0, MaxHealth); // Ensure health doesn't drop below 0
+        Health = Mathf.Clamp(Health, 0, MaxHealth);
         UpdateHealthSlider();
+
+        StartCoroutine(PlayerShake(0.1f, 0.1f)); // Shake player
+        CameraShake.Instance.ShakeCamera(0.2f, 0.2f); // Shake camera
 
         if (Health <= 0)
         {
-            ReloadScene(); // Call the method to reload the scene
+            ReloadScene();
         }
     }
+
+    IEnumerator PlayerShake(float duration, float magnitude)
+    {
+        Vector3 originalPosition = transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
+
+            transform.position = new Vector3(originalPosition.x + x, originalPosition.y + y, originalPosition.z);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = originalPosition;
+    }
+
 
     void ReloadScene()
     {
