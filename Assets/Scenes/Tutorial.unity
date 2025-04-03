@@ -4493,6 +4493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 1648051531518380068, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2530163063318029355, guid: 2de4cfa0bd15f14488ba97a19ad80216, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.81
