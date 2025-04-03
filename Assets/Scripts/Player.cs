@@ -150,10 +150,15 @@ public class Player : MonoBehaviour
             currentChamberAmmo--;
             UpdateAmmoText();
 
+            // Apply recoil by moving the player slightly in the opposite direction
+            Vector3 recoilDirection = transform.rotation.y == 0 ? Vector3.left : Vector3.right;
+            transform.position += recoilDirection * 0.05f; // Adjust the magnitude as needed
+
             // Play gun fire sound
             PlayGunFireSound();
         }
     }
+
 
     private void PlayGunFireSound()
     {
