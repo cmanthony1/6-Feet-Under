@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     private Vector3 originalScale;  // To store the original scale of the player
     private bool isCrouching = false; // To track crouching state
     private Evidence nearbyEvidence; // Reference to nearby evidence
+    public Transform weaponTransform; // Assign in the Inspector
 
     private void Start()
     {
@@ -82,6 +83,8 @@ public class Player : MonoBehaviour
         {
             transform.rotation = movement < 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
         }
+        // Rotate weapon to face the mouse cursor
+        RotateWeaponTowardsMouse();
 
         // Shooting logic
         if (Input.GetMouseButtonDown(0))
@@ -109,7 +112,13 @@ public class Player : MonoBehaviour
             nearbyEvidence = null;
         }
     }
-
+    private void RotateWeaponTowardsMouse()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePosition - weaponTransform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        weaponTransform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    }
 
     void StartCrouching()
     {
@@ -145,20 +154,34 @@ public class Player : MonoBehaviour
     {
         if (currentChamberAmmo > 0 && bulletPrefab != null && firePoint != null)
         {
-            // Instantiate the bullet and decrement chamber ammo
+            if (!IsFacingMouseDirection()) return; // Prevent shooting in the wrong direction
+
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             currentChamberAmmo--;
             UpdateAmmoText();
 
-            // Apply recoil by moving the player slightly in the opposite direction
             Vector3 recoilDirection = transform.rotation.y == 0 ? Vector3.left : Vector3.right;
-            transform.position += recoilDirection * 0.05f; // Adjust the magnitude as needed
+            transform.position += recoilDirection * 0.025f;
 
-            // Play gun fire sound
             PlayGunFireSound();
         }
     }
 
+    private bool IsFacingMouseDirection()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 directionToMouse = mousePosition - transform.position;
+
+        // If the player is facing right (y = 0), make sure mouse is to the right
+        if (transform.rotation.y == 0 && directionToMouse.x < 0)
+            return false;
+
+        // If the player is facing left (y = 180), make sure mouse is to the left
+        if (transform.rotation.y != 0 && directionToMouse.x > 0)
+            return false;
+
+        return true;
+    }
 
     private void PlayGunFireSound()
     {

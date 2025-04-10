@@ -5197,6 +5197,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 580096435}
+    - target: {fileID: 7552126448748448455, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
+      propertyPath: weaponTransform
+      value: 
+      objectReference: {fileID: 3200719874623303427}
     - target: {fileID: 8691782589783933815, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.14
@@ -5209,6 +5213,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 436540358}
   m_SourcePrefab: {fileID: 100100000, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
+--- !u!4 &3200719874623303427 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8691782589783933815, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
+  m_PrefabInstance: {fileID: 3200719874623303426}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
