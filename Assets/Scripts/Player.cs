@@ -1,53 +1,50 @@
 using UnityEngine;
-using UnityEngine.UI; // Required for working with UI components
-using TMPro; // Required for working with TextMeshPro
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
-using System.Collections; // Required for IEnumerator (Coroutines)
-
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    public float MovementSpeed = 1; // Player's movement speed
-    public GameObject bulletPrefab; // Bullet prefab to instantiate
-    public Transform firePoint;     // FirePoint for bullets
-    public float Health = 10;       // Current health
-    public float MaxHealth = 10;    // Maximum health
-    public Slider healthSlider;     // Reference to the health slider
+    public float MovementSpeed = 1;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float Health = 10;
+    public float MaxHealth = 10;
+    public Slider healthSlider;
 
-    public int MaxChamberAmmo = 6;  // Maximum ammo in the chamber
-    public int MaxReserveAmmo = 12; // Maximum ammo in reserve
-    private int currentChamberAmmo; // Current ammo in the chamber
-    private int currentReserveAmmo; // Current ammo in reserve
-    public TMP_Text ammoText;       // Reference to the TMP UI text for ammo
+    public int MaxChamberAmmo = 6;
+    public int MaxReserveAmmo = 12;
+    private int currentChamberAmmo;
+    private int currentReserveAmmo;
+    public TMP_Text ammoText;
 
-    public AudioClip gunFireSound;  // Sound effect for gun firing
-    public AudioClip outOfAmmoSound; // Sound effect for out of ammo
-    public AudioClip reloadSound;   // Sound effect for reloading
-    private AudioSource audioSource; // Audio source component
+    public AudioClip gunFireSound;
+    public AudioClip outOfAmmoSound;
+    public AudioClip reloadSound;
+    private AudioSource audioSource;
 
-    private Vector3 originalScale;  // To store the original scale of the player
-    private bool isCrouching = false; // To track crouching state
-    private Evidence nearbyEvidence; // Reference to nearby evidence
-    public Transform weaponTransform; // Assign in the Inspector
+    private Vector3 originalScale;
+    private bool isCrouching = false;
+    private Evidence nearbyEvidence;
+    public Transform weaponTransform;
+
+    private bool isPaused = false; // <-- Added for pause control
 
     private void Start()
     {
-        // Initialize the health slider
         if (healthSlider != null)
         {
             healthSlider.maxValue = MaxHealth;
             healthSlider.value = Health;
         }
 
-        // Initialize ammo
         currentChamberAmmo = MaxChamberAmmo;
         currentReserveAmmo = MaxReserveAmmo;
         UpdateAmmoText();
 
-        // Store the original scale of the player
         originalScale = transform.localScale;
 
-        // Get the AudioSource component
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
@@ -57,36 +54,27 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        // Update health slider smoothly
+        if (isPaused) return; // <-- Ignore input when paused
+
         if (healthSlider != null)
         {
             healthSlider.value = Mathf.Lerp(healthSlider.value, Health, Time.deltaTime * 10f);
         }
 
-        // Handle crouching
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            StartCrouching();
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftControl))
-        {
-            StopCrouching();
-        }
+        if (Input.GetKeyDown(KeyCode.LeftControl)) StartCrouching();
+        else if (Input.GetKeyUp(KeyCode.LeftControl)) StopCrouching();
 
-        // Movement logic (adjust speed when crouched)
-        float movementSpeedModifier = isCrouching ? 0.5f : 1f; // Reduce speed while crouching
+        float movementSpeedModifier = isCrouching ? 0.5f : 1f;
         var movement = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed * movementSpeedModifier;
 
-        // Rotate player sprite based on movement direction
         if (!Mathf.Approximately(movement, 0))
         {
             transform.rotation = movement < 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
         }
-        // Rotate weapon to face the mouse cursor
+
         RotateWeaponTowardsMouse();
 
-        // Shooting logic
         if (Input.GetMouseButtonDown(0))
         {
             if (currentChamberAmmo > 0)
@@ -99,19 +87,20 @@ public class Player : MonoBehaviour
             }
         }
 
-        // Reloading
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reload();
-        }
+        if (Input.GetKeyDown(KeyCode.R)) Reload();
 
-        // Collect evidence
         if (Input.GetKeyDown(KeyCode.E) && nearbyEvidence != null)
         {
             nearbyEvidence.Collect();
             nearbyEvidence = null;
         }
     }
+
+    public void SetPaused(bool paused) // <-- This is called by PauseManager
+    {
+        isPaused = paused;
+    }
+
     private void RotateWeaponTowardsMouse()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -126,8 +115,6 @@ public class Player : MonoBehaviour
         {
             isCrouching = true;
             transform.localScale = new Vector3(originalScale.x, originalScale.y / 2, originalScale.z);
-
-            // Move player down so they stay attached to the ground
             transform.position -= new Vector3(0, originalScale.y / 4, 0);
         }
     }
@@ -138,23 +125,17 @@ public class Player : MonoBehaviour
         {
             isCrouching = false;
             transform.localScale = originalScale;
-
-            // Move player back up to original position
             transform.position += new Vector3(0, originalScale.y / 4, 0);
         }
     }
 
-
-    public bool IsCrouching()
-    {
-        return isCrouching;
-    }
+    public bool IsCrouching() => isCrouching;
 
     void Shoot()
     {
         if (currentChamberAmmo > 0 && bulletPrefab != null && firePoint != null)
         {
-            if (!IsFacingMouseDirection()) return; // Prevent shooting in the wrong direction
+            if (!IsFacingMouseDirection()) return;
 
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             currentChamberAmmo--;
@@ -172,13 +153,8 @@ public class Player : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 directionToMouse = mousePosition - transform.position;
 
-        // If the player is facing right (y = 0), make sure mouse is to the right
-        if (transform.rotation.y == 0 && directionToMouse.x < 0)
-            return false;
-
-        // If the player is facing left (y = 180), make sure mouse is to the left
-        if (transform.rotation.y != 0 && directionToMouse.x > 0)
-            return false;
+        if (transform.rotation.y == 0 && directionToMouse.x < 0) return false;
+        if (transform.rotation.y != 0 && directionToMouse.x > 0) return false;
 
         return true;
     }
@@ -209,14 +185,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if hit by a bullet
         if (collision.CompareTag("Bullet"))
         {
             TakeDamage();
-            Destroy(collision.gameObject); // Destroy the bullet on impact
+            Destroy(collision.gameObject);
         }
 
-        // Check if the object has the Evidence script
         Evidence evidence = collision.GetComponent<Evidence>();
         if (evidence != null)
         {
@@ -226,7 +200,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        // Clear the reference when the player leaves the trigger
         Evidence evidence = collision.GetComponent<Evidence>();
         if (evidence != null && evidence == nearbyEvidence)
         {
@@ -248,8 +221,8 @@ public class Player : MonoBehaviour
         Health = Mathf.Clamp(Health, 0, MaxHealth);
         UpdateHealthSlider();
 
-        StartCoroutine(PlayerShake(0.1f, 0.1f)); // Shake player
-        CameraShake.Instance.ShakeCamera(0.2f, 0.2f); // Shake camera
+        StartCoroutine(PlayerShake(0.1f, 0.1f));
+        CameraShake.Instance.ShakeCamera(0.2f, 0.2f);
 
         if (Health <= 0)
         {
@@ -275,7 +248,6 @@ public class Player : MonoBehaviour
         transform.position = originalPosition;
     }
 
-
     void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -285,7 +257,6 @@ public class Player : MonoBehaviour
     {
         if (healthSlider != null)
         {
-            // Immediately update the slider to match the health
             healthSlider.value = Health;
         }
     }
@@ -294,7 +265,6 @@ public class Player : MonoBehaviour
     {
         if (ammoText != null)
         {
-            // Format ammo display as "Chamber/Reserve" (e.g., "6/12")
             ammoText.text = $"{currentChamberAmmo}/{currentReserveAmmo}";
         }
     }
@@ -310,8 +280,6 @@ public class Player : MonoBehaviour
             currentReserveAmmo -= ammoToReload;
 
             UpdateAmmoText();
-
-            // Play reload sound
             PlayReloadSound();
         }
         else if (currentReserveAmmo == 0)
@@ -322,12 +290,8 @@ public class Player : MonoBehaviour
 
     public void RefillAmmo(int chamberAmount, int reserveAmount)
     {
-        // Refill the chamber ammo (but do not exceed max chamber capacity)
         currentChamberAmmo = Mathf.Min(currentChamberAmmo + chamberAmount, MaxChamberAmmo);
-
-        // Refill the reserve ammo (but do not exceed max reserve capacity)
         currentReserveAmmo = Mathf.Min(currentReserveAmmo + reserveAmount, MaxReserveAmmo);
-
-        UpdateAmmoText(); // Update the ammo display
+        UpdateAmmoText();
     }
 }
