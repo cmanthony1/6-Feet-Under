@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0044742aab25c5d4f95459c8f860a4ac
+guid: c8d4859146c98674ea18ffa52ce0bbb8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_0
+      name: MCCrouch1-Anim-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 102.22222
+        height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8749f2f360724ba47aed1495db065070
-      internalID: -1813078896
+      spriteID: 6964b69e4fdd415418802906daa49a5a
+      internalID: -1875724886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_1
+      name: MCCrouch1-Anim-Sheet_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 102
         y: 0
-        width: 64
-        height: 64
+        width: 102.22222
+        height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a78da81fd75c7498991bec5fc29ccf
-      internalID: 102226731
+      spriteID: c14beed2383d97a49be283d56b85a82f
+      internalID: 1652195556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_2
+      name: MCCrouch1-Anim-Sheet_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 204
         y: 0
-        width: 64
-        height: 64
+        width: 102.22222
+        height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f455fd63c315bb14fa8c110a716d82a8
-      internalID: 43003387
+      spriteID: 6905508a988e7884e83c36620fe10539
+      internalID: 483374993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_3
+      name: MCCrouch1-Anim-Sheet_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 306
         y: 0
-        width: 64
-        height: 64
+        width: 102.22222
+        height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3d3544edeb65a748835c14147ae8219
-      internalID: -675419896
+      spriteID: d20273da108174743aae1939b085913f
+      internalID: -637853564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCCrouch1-Anim-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 102.22222
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 934ecc4da86c41b40a5a07c69fd68c84
+      internalID: -670077858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCCrouch1-Anim-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 0
+        width: 102.22222
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e83662a961ecf42833279af30dc098
+      internalID: -675399324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCCrouch1-Anim-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 0
+        width: 102.22222
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7bcb16fd49d2d478fd6a217693d245
+      internalID: -656604325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCCrouch1-Anim-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 0
+        width: 102.22222
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b005c2c2df9754baf80bc1c669a189
+      internalID: -504643124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCCrouch1-Anim-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 0
+        width: 102.22222
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f741d7710851b428fbd2c365b0ccad
+      internalID: -153358382
       vertices: []
       indices: 
       edges: []
@@ -197,17 +302,22 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EnemieNP_C6FU_Anim-Sheet_0: -1813078896
-      EnemieNP_C6FU_Anim-Sheet_1: 102226731
-      EnemieNP_C6FU_Anim-Sheet_2: 43003387
-      EnemieNP_C6FU_Anim-Sheet_3: -675419896
+      MCCrouch1-Anim-Sheet_0: -1875724886
+      MCCrouch1-Anim-Sheet_1: 1652195556
+      MCCrouch1-Anim-Sheet_2: 483374993
+      MCCrouch1-Anim-Sheet_3: -637853564
+      MCCrouch1-Anim-Sheet_4: -670077858
+      MCCrouch1-Anim-Sheet_5: -675399324
+      MCCrouch1-Anim-Sheet_6: -656604325
+      MCCrouch1-Anim-Sheet_7: -504643124
+      MCCrouch1-Anim-Sheet_8: -153358382
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0044742aab25c5d4f95459c8f860a4ac
+guid: 99da8e0518e6555498aa74453e844856
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_0
+      name: PinkEnemy_6FU_Walk-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8749f2f360724ba47aed1495db065070
-      internalID: -1813078896
+      spriteID: 07fa3294fd48b0e44aa75bd74d9332f7
+      internalID: -1613911409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_1
+      name: PinkEnemy_6FU_Walk-Sheet_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 30
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a78da81fd75c7498991bec5fc29ccf
-      internalID: 102226731
+      spriteID: 3b053d9b40ea49e4cb43668c4e93593c
+      internalID: 23477163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_2
+      name: PinkEnemy_6FU_Walk-Sheet_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 60
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f455fd63c315bb14fa8c110a716d82a8
-      internalID: 43003387
+      spriteID: 57d76e373e3c8c443943260a86aaee05
+      internalID: -180428979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_3
+      name: PinkEnemy_6FU_Walk-Sheet_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 90
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3d3544edeb65a748835c14147ae8219
-      internalID: -675419896
+      spriteID: 16f917f885033f74e958d4b3abe9958a
+      internalID: 1308616665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinkEnemy_6FU_Walk-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 30.222221
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dbec702d73aebe499b7f385f1311b2e
+      internalID: 156163514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinkEnemy_6FU_Walk-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 30.222221
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f10c1959749b3f4eb395c350eb8d298
+      internalID: 1769242967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinkEnemy_6FU_Walk-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 30.222221
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d2668e090970143a6d4453417c9b7a
+      internalID: 1807592459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinkEnemy_6FU_Walk-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 30.222221
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8d11e0e6fe3124f80d8db1a7870add
+      internalID: 1008451556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PinkEnemy_6FU_Walk-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 30.222221
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e566c37cee1a68044ab0b0a811c8a5e6
+      internalID: -604667475
       vertices: []
       indices: 
       edges: []
@@ -197,17 +302,22 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EnemieNP_C6FU_Anim-Sheet_0: -1813078896
-      EnemieNP_C6FU_Anim-Sheet_1: 102226731
-      EnemieNP_C6FU_Anim-Sheet_2: 43003387
-      EnemieNP_C6FU_Anim-Sheet_3: -675419896
+      PinkEnemy_6FU_Walk-Sheet_0: -1613911409
+      PinkEnemy_6FU_Walk-Sheet_1: 23477163
+      PinkEnemy_6FU_Walk-Sheet_2: -180428979
+      PinkEnemy_6FU_Walk-Sheet_3: 1308616665
+      PinkEnemy_6FU_Walk-Sheet_4: 156163514
+      PinkEnemy_6FU_Walk-Sheet_5: 1769242967
+      PinkEnemy_6FU_Walk-Sheet_6: 1807592459
+      PinkEnemy_6FU_Walk-Sheet_7: 1008451556
+      PinkEnemy_6FU_Walk-Sheet_8: -604667475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

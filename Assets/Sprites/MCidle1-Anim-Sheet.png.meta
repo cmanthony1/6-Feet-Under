@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0044742aab25c5d4f95459c8f860a4ac
+guid: d9a1ac5f3f005204e9cb21337c0f44c4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_0
+      name: MCidle1-Anim-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8749f2f360724ba47aed1495db065070
-      internalID: -1813078896
+      spriteID: 9995acfa3b6f0e34f932721c87e9aeb7
+      internalID: 35477653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_1
+      name: MCidle1-Anim-Sheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a78da81fd75c7498991bec5fc29ccf
-      internalID: 102226731
+      spriteID: 357128b068c222e4fb9455f5fb5abd93
+      internalID: -1304613659
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_2
+      name: MCidle1-Anim-Sheet_2
       rect:
         serializedVersion: 2
         x: 128
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f455fd63c315bb14fa8c110a716d82a8
-      internalID: 43003387
+      spriteID: 3bd5587434672134f91f46b1f90f609e
+      internalID: -980002176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_3
+      name: MCidle1-Anim-Sheet_3
       rect:
         serializedVersion: 2
         x: 192
@@ -187,8 +187,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3d3544edeb65a748835c14147ae8219
-      internalID: -675419896
+      spriteID: 94b195a946dfd214e8d0bfcbdff6c9c9
+      internalID: -1200651382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCidle1-Anim-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e83e80b4f101d4fa85825d792887c8
+      internalID: 767192034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MCidle1-Anim-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3141d266fda94ff41a53dac3b1c01e23
+      internalID: 1542254990
       vertices: []
       indices: 
       edges: []
@@ -197,17 +239,19 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EnemieNP_C6FU_Anim-Sheet_0: -1813078896
-      EnemieNP_C6FU_Anim-Sheet_1: 102226731
-      EnemieNP_C6FU_Anim-Sheet_2: 43003387
-      EnemieNP_C6FU_Anim-Sheet_3: -675419896
+      MCidle1-Anim-Sheet_0: 35477653
+      MCidle1-Anim-Sheet_1: -1304613659
+      MCidle1-Anim-Sheet_2: -980002176
+      MCidle1-Anim-Sheet_3: -1200651382
+      MCidle1-Anim-Sheet_4: 767192034
+      MCidle1-Anim-Sheet_5: 1542254990
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

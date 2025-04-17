@@ -374,6 +374,7 @@ MonoBehaviour:
   FollowSpeed: 5
   target: {fileID: 1407078594}
   yOffset: 3
+  cursorFollowAmount: 3
 --- !u!1 &822814993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1144,7 @@ MonoBehaviour:
   gunFireSound: {fileID: 0}
   outOfAmmoSound: {fileID: 0}
   reloadSound: {fileID: 0}
+  weaponTransform: {fileID: 0}
 --- !u!50 &1407078591
 Rigidbody2D:
   serializedVersion: 4

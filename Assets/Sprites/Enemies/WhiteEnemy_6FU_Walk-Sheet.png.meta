@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0044742aab25c5d4f95459c8f860a4ac
+guid: 90a0f944ef5d55a4ba0a69b4bc5a9104
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_0
+      name: WhiteEnemy_6FU_Walk-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8749f2f360724ba47aed1495db065070
-      internalID: -1813078896
+      spriteID: 683f0a56ec7154144964972236cb4649
+      internalID: 1293146343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_1
+      name: WhiteEnemy_6FU_Walk-Sheet_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 30
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a78da81fd75c7498991bec5fc29ccf
-      internalID: 102226731
+      spriteID: 0875fd93d80c6474a9b7023cc8b96be9
+      internalID: -1468552165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_2
+      name: WhiteEnemy_6FU_Walk-Sheet_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 60
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f455fd63c315bb14fa8c110a716d82a8
-      internalID: 43003387
+      spriteID: b4b7ea4fbdc5b9741ae1a82d175b4943
+      internalID: 1323557392
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_3
+      name: WhiteEnemy_6FU_Walk-Sheet_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 90
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3d3544edeb65a748835c14147ae8219
-      internalID: -675419896
+      spriteID: f71f9c66d63b21a449b79ab8af4c5b50
+      internalID: -806563184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteEnemy_6FU_Walk-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101f7bba7c3cd3546bcc3dac6c1638c2
+      internalID: 1710845730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteEnemy_6FU_Walk-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2703466161c55694082199896b1d51eb
+      internalID: -1842515958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteEnemy_6FU_Walk-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc03cb568e35604eb5a53c5bbd78233
+      internalID: -1172871286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteEnemy_6FU_Walk-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ac724ea05c122245afd1fe6de1fe19b
+      internalID: 730342268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteEnemy_6FU_Walk-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f3dfa14c0a0d34a8fc77bb34efcf31
+      internalID: 549487824
       vertices: []
       indices: 
       edges: []
@@ -197,17 +302,22 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EnemieNP_C6FU_Anim-Sheet_0: -1813078896
-      EnemieNP_C6FU_Anim-Sheet_1: 102226731
-      EnemieNP_C6FU_Anim-Sheet_2: 43003387
-      EnemieNP_C6FU_Anim-Sheet_3: -675419896
+      WhiteEnemy_6FU_Walk-Sheet_0: 1293146343
+      WhiteEnemy_6FU_Walk-Sheet_1: -1468552165
+      WhiteEnemy_6FU_Walk-Sheet_2: 1323557392
+      WhiteEnemy_6FU_Walk-Sheet_3: -806563184
+      WhiteEnemy_6FU_Walk-Sheet_4: 1710845730
+      WhiteEnemy_6FU_Walk-Sheet_5: -1842515958
+      WhiteEnemy_6FU_Walk-Sheet_6: -1172871286
+      WhiteEnemy_6FU_Walk-Sheet_7: 730342268
+      WhiteEnemy_6FU_Walk-Sheet_8: 549487824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

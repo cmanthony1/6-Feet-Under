@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0044742aab25c5d4f95459c8f860a4ac
+guid: 7e9f5ddce4479ff4e94114710c6df645
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_0
+      name: DetectiveEnemy_6FU_Walk-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8749f2f360724ba47aed1495db065070
-      internalID: -1813078896
+      spriteID: 393a5b2d8b8702543b0475199450652c
+      internalID: -149136583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_1
+      name: DetectiveEnemy_6FU_Walk-Sheet_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 30
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a78da81fd75c7498991bec5fc29ccf
-      internalID: 102226731
+      spriteID: e4e3bc508d4e8fa4cb708ae7a974f64c
+      internalID: -718563464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_2
+      name: DetectiveEnemy_6FU_Walk-Sheet_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 60
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f455fd63c315bb14fa8c110a716d82a8
-      internalID: 43003387
+      spriteID: a84f220af842ced44bc4f554ae5fe230
+      internalID: -845308653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EnemieNP_C6FU_Anim-Sheet_3
+      name: DetectiveEnemy_6FU_Walk-Sheet_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 90
         y: 0
-        width: 64
-        height: 64
+        width: 30.222221
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,8 +187,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3d3544edeb65a748835c14147ae8219
-      internalID: -675419896
+      spriteID: 0e39652ca0d99d04f9b04415b1446021
+      internalID: -957284286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DetectiveEnemy_6FU_Walk-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24cd9ead11c33af4c8f2a48f0677b423
+      internalID: -2053523449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DetectiveEnemy_6FU_Walk-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787bc01fd42e25e458df24e7f4e75ea7
+      internalID: -753656048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DetectiveEnemy_6FU_Walk-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db21b0857d8bb1744ab633e41e5be395
+      internalID: 2122843979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DetectiveEnemy_6FU_Walk-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f92bbe95f517794695d375947097090
+      internalID: -18293934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DetectiveEnemy_6FU_Walk-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 30.222221
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02748b6ccdb962e40a945016cf5ff1dd
+      internalID: 685216256
       vertices: []
       indices: 
       edges: []
@@ -197,17 +302,22 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      EnemieNP_C6FU_Anim-Sheet_0: -1813078896
-      EnemieNP_C6FU_Anim-Sheet_1: 102226731
-      EnemieNP_C6FU_Anim-Sheet_2: 43003387
-      EnemieNP_C6FU_Anim-Sheet_3: -675419896
+      DetectiveEnemy_6FU_Walk-Sheet_0: -149136583
+      DetectiveEnemy_6FU_Walk-Sheet_1: -718563464
+      DetectiveEnemy_6FU_Walk-Sheet_2: -845308653
+      DetectiveEnemy_6FU_Walk-Sheet_3: -957284286
+      DetectiveEnemy_6FU_Walk-Sheet_4: -2053523449
+      DetectiveEnemy_6FU_Walk-Sheet_5: -753656048
+      DetectiveEnemy_6FU_Walk-Sheet_6: 2122843979
+      DetectiveEnemy_6FU_Walk-Sheet_7: -18293934
+      DetectiveEnemy_6FU_Walk-Sheet_8: 685216256
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
