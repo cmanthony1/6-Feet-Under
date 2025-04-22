@@ -113,10 +113,10 @@ TextureImporter:
       name: MCCrouch1-Anim-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 102.22222
-        height: 216
+        x: 4
+        y: 8
+        width: 96
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: MCCrouch1-Anim-Sheet_1
       rect:
         serializedVersion: 2
-        x: 102
-        y: 0
-        width: 102.22222
-        height: 216
+        x: 106
+        y: 8
+        width: 96
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: MCCrouch1-Anim-Sheet_2
       rect:
         serializedVersion: 2
-        x: 204
-        y: 0
-        width: 102.22222
-        height: 216
+        x: 208
+        y: 8
+        width: 96
+        height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: MCCrouch1-Anim-Sheet_3
       rect:
         serializedVersion: 2
-        x: 306
-        y: 0
-        width: 102.22222
-        height: 216
+        x: 310
+        y: 8
+        width: 96
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: MCCrouch1-Anim-Sheet_4
       rect:
         serializedVersion: 2
-        x: 408
-        y: 0
-        width: 102.22222
-        height: 216
+        x: 412
+        y: 8
+        width: 96
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: MCCrouch1-Anim-Sheet_5
       rect:
         serializedVersion: 2
-        x: 510
-        y: 0
-        width: 102.22222
-        height: 216
+        x: 514
+        y: 8
+        width: 96
+        height: 175
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: MCCrouch1-Anim-Sheet_6
       rect:
         serializedVersion: 2
-        x: 612
-        y: 0
-        width: 102.22222
-        height: 216
+        x: 616
+        y: 8
+        width: 96
+        height: 193
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: MCCrouch1-Anim-Sheet_7
       rect:
         serializedVersion: 2
-        x: 714
-        y: 0
-        width: 102.22222
-        height: 216
+        x: 718
+        y: 8
+        width: 96
+        height: 204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: MCCrouch1-Anim-Sheet_8
       rect:
         serializedVersion: 2
-        x: 816
-        y: 0
-        width: 102.22222
-        height: 216
+        x: 820
+        y: 8
+        width: 96
+        height: 208
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

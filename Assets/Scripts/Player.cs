@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -29,7 +29,9 @@ public class Player : MonoBehaviour
     private Evidence nearbyEvidence;
     public Transform weaponTransform;
 
-    private bool isPaused = false; // <-- Added for pause control
+    private bool isPaused = false;
+
+    private Animator animator;
 
     private void Start()
     {
@@ -50,11 +52,13 @@ public class Player : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (isPaused) return; // <-- Ignore input when paused
+        if (isPaused) return;
 
         if (healthSlider != null)
         {
@@ -64,8 +68,9 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl)) StartCrouching();
         else if (Input.GetKeyUp(KeyCode.LeftControl)) StopCrouching();
 
+        float movement = Input.GetAxis("Horizontal");
         float movementSpeedModifier = isCrouching ? 0.5f : 1f;
-        var movement = Input.GetAxis("Horizontal");
+
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed * movementSpeedModifier;
 
         if (!Mathf.Approximately(movement, 0))
@@ -94,9 +99,22 @@ public class Player : MonoBehaviour
             nearbyEvidence.Collect();
             nearbyEvidence = null;
         }
+        if (movement > 0)
+        {
+            animator.SetBool("IsWalking", true);
+            animator.SetBool("IsCrouch", false);
+            animator.SetBool("Idle", false);
+        }
+        else if (MovementSpeed == 0)
+        {
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsCrouch", false);
+            animator.SetBool("Idle", true);
+        }
+        
     }
 
-    public void SetPaused(bool paused) // <-- This is called by PauseManager
+    public void SetPaused(bool paused)
     {
         isPaused = paused;
     }
@@ -116,6 +134,9 @@ public class Player : MonoBehaviour
             isCrouching = true;
             transform.localScale = new Vector3(originalScale.x, originalScale.y / 2, originalScale.z);
             transform.position -= new Vector3(0, originalScale.y / 4, 0);
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsCrouch", true);
+            animator.SetBool("Idle", false);
         }
     }
 

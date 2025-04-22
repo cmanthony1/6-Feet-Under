@@ -1217,6 +1217,7 @@ MonoBehaviour:
   FollowSpeed: 5
   target: {fileID: 1951531913}
   yOffset: 3
+  cursorFollowAmount: 3
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3889,6 +3890,7 @@ MonoBehaviour:
   gunFireSound: {fileID: 8300000, guid: 1e51857d4e71a394aae5acda4e61be25, type: 3}
   outOfAmmoSound: {fileID: 8300000, guid: 9de98507cf189b840b73c078e34cd351, type: 3}
   reloadSound: {fileID: 8300000, guid: 614a79cd723cf6b4c93d13112ad8c096, type: 3}
+  weaponTransform: {fileID: 955183068}
 --- !u!114 &1951531915
 MonoBehaviour:
   m_ObjectHideFlags: 0
