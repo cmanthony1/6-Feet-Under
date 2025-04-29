@@ -838,6 +838,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 740089076247445254, guid: e7c3209668ee59646a4c6085440a5f90, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2150442672867552622, guid: e7c3209668ee59646a4c6085440a5f90, type: 3}
       propertyPath: door
       value: 
@@ -1205,6 +1209,10 @@ PrefabInstance:
     - target: {fileID: 20386597742553361, guid: 890a9a3f0783afe4c92cba362121b79d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498079410322816388, guid: 890a9a3f0783afe4c92cba362121b79d, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6063709522726287953, guid: 890a9a3f0783afe4c92cba362121b79d, type: 3}
       propertyPath: m_Name
@@ -2061,6 +2069,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 740089076247445254, guid: e7c3209668ee59646a4c6085440a5f90, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2150442672867552622, guid: e7c3209668ee59646a4c6085440a5f90, type: 3}
       propertyPath: door
       value: 
@@ -2948,6 +2960,22 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 581391379221496173, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.w
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 581391379221496173, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.x
+      value: 1.9699999
+      objectReference: {fileID: 0}
+    - target: {fileID: 581391379221496173, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.y
+      value: 0.48999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 581391379221496173, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
+      propertyPath: m_SpriteTilingProperty.border.z
+      value: 1.9699999
+      objectReference: {fileID: 0}
+    - target: {fileID: 581391379221496173, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 6.4
       objectReference: {fileID: 0}
@@ -2958,6 +2986,10 @@ PrefabInstance:
     - target: {fileID: 1584462047260372572, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
       propertyPath: m_BodyType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584462047260372572, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1584462047260372572, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
       propertyPath: m_SleepingMode
@@ -2971,6 +3003,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 62fbbc877220f0545963aaac4f66d5a5, type: 3}
+    - target: {fileID: 1865229675019217970, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2181805526994134052, guid: 04b535ed085d8a94ebfbb7923e771ca1, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8863832
@@ -3080,12 +3116,12 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453757411}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 426caa21a91e84a4a8c1aae1a7202141, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -3236,6 +3272,10 @@ PrefabInstance:
     - target: {fileID: 458219773621590648, guid: 00c5e3fd52476df49bb0d14874a89f48, type: 3}
       propertyPath: m_Name
       value: DetectiveEnemy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 654950423223371520, guid: 00c5e3fd52476df49bb0d14874a89f48, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1219915415663647358, guid: 00c5e3fd52476df49bb0d14874a89f48, type: 3}
       propertyPath: door
@@ -3454,6 +3494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1961439385}
   - component: {fileID: 1961439384}
+  - component: {fileID: 1961439386}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Untagged
@@ -3528,6 +3569,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1961439386
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961439383}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     private bool isPaused = false;
 
-    private Animator animator;
+    // private Animator animator;
 
     private void Start()
     {
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        animator = GetComponent<Animator>();
+        // animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -99,19 +99,20 @@ public class Player : MonoBehaviour
             nearbyEvidence.Collect();
             nearbyEvidence = null;
         }
+
+        // Animation control
+        /*
         if (movement > 0)
         {
             animator.SetBool("IsWalking", true);
-            animator.SetBool("IsCrouch", false);
             animator.SetBool("Idle", false);
         }
         else if (MovementSpeed == 0)
         {
             animator.SetBool("IsWalking", false);
-            animator.SetBool("IsCrouch", false);
             animator.SetBool("Idle", true);
         }
-        
+        */
     }
 
     public void SetPaused(bool paused)
@@ -134,9 +135,9 @@ public class Player : MonoBehaviour
             isCrouching = true;
             transform.localScale = new Vector3(originalScale.x, originalScale.y / 2, originalScale.z);
             transform.position -= new Vector3(0, originalScale.y / 4, 0);
-            animator.SetBool("IsWalking", false);
-            animator.SetBool("IsCrouch", true);
-            animator.SetBool("Idle", false);
+            // animator.SetBool("IsWalking", false);
+            // animator.SetBool("Idle", false);
+            // animator.SetBool("IsCrouch", true);
         }
     }
 
@@ -144,7 +145,7 @@ public class Player : MonoBehaviour
     {
         if (isCrouching)
         {
-            isCrouching = false;
+            isCrouching = false;  // <-- MUST BE HERE
             transform.localScale = originalScale;
             transform.position += new Vector3(0, originalScale.y / 4, 0);
         }
