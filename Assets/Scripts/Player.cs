@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     private bool isPaused = false;
 
-    // private Animator animator;
+    private Animator animator;
 
     private void Start()
     {
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        // animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -70,6 +70,10 @@ public class Player : MonoBehaviour
 
         float movement = Input.GetAxis("Horizontal");
         float movementSpeedModifier = isCrouching ? 0.5f : 1f;
+
+        // Animation control
+        animator.SetFloat("Move", Mathf.Abs(movement));
+        Debug.Log("movement:" + movement);
 
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed * movementSpeedModifier;
 
@@ -100,19 +104,7 @@ public class Player : MonoBehaviour
             nearbyEvidence = null;
         }
 
-        // Animation control
-        /*
-        if (movement > 0)
-        {
-            animator.SetBool("IsWalking", true);
-            animator.SetBool("Idle", false);
-        }
-        else if (MovementSpeed == 0)
-        {
-            animator.SetBool("IsWalking", false);
-            animator.SetBool("Idle", true);
-        }
-        */
+        
     }
 
     public void SetPaused(bool paused)

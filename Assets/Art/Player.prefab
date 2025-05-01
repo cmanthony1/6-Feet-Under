@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7552126448748448455}
   - component: {fileID: 581391379221496173}
   - component: {fileID: 1584462047260372572}
+  - component: {fileID: 1514460120620068638}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -107,11 +108,12 @@ MonoBehaviour:
   MaxHealth: 10
   healthSlider: {fileID: 0}
   MaxChamberAmmo: 6
-  MaxReserveAmmo: 12
+  MaxReserveAmmo: 24
   ammoText: {fileID: 0}
   gunFireSound: {fileID: 8300000, guid: 1e51857d4e71a394aae5acda4e61be25, type: 3}
   outOfAmmoSound: {fileID: 8300000, guid: 9de98507cf189b840b73c078e34cd351, type: 3}
   reloadSound: {fileID: 8300000, guid: 614a79cd723cf6b4c93d13112ad8c096, type: 3}
+  weaponTransform: {fileID: 8691782589783933815}
 --- !u!61 &581391379221496173
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +148,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.0053596497, y: -0.12031937}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 1.9699999, y: 0.48999998, z: 1.9699999, w: 0.65}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6.4, y: 6.4}
     newSize: {x: 1, y: 1}
@@ -184,6 +186,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1514460120620068638
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2887800932760277294}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0855161259ab7e2498a2c5f95bf63abe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5421306253794085619
 GameObject:
   m_ObjectHideFlags: 0

@@ -629,7 +629,7 @@ MonoBehaviour:
 
     D - Go Right
 
-    R-Mouse: Shoot
+    L-Mouse: Shoot
 
     E
     - Interact
@@ -3891,21 +3891,27 @@ MonoBehaviour:
   outOfAmmoSound: {fileID: 8300000, guid: 9de98507cf189b840b73c078e34cd351, type: 3}
   reloadSound: {fileID: 8300000, guid: 614a79cd723cf6b4c93d13112ad8c096, type: 3}
   weaponTransform: {fileID: 955183068}
---- !u!114 &1951531915
-MonoBehaviour:
+--- !u!95 &1951531915
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951531909}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea2013feea9af744966c5690a576170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 16614955}
-  player: {fileID: 0}
-  bulletSpeed: 10
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2010529897
 GameObject:
   m_ObjectHideFlags: 0
