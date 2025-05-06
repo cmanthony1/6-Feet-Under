@@ -13,12 +13,7 @@ public class Player : MonoBehaviour
     public float MaxHealth = 10;
     public Slider healthSlider;
 
-    public int MaxChamberAmmo = 6;
-    public int MaxReserveAmmo = 12;
-    private int currentChamberAmmo;
-    private int currentReserveAmmo;
     public TMP_Text ammoText;
-
     public AudioClip gunFireSound;
     public AudioClip outOfAmmoSound;
     public AudioClip reloadSound;
@@ -28,10 +23,20 @@ public class Player : MonoBehaviour
     private bool isCrouching = false;
     private Evidence nearbyEvidence;
     public Transform weaponTransform;
-
     private bool isPaused = false;
-
     private Animator animator;
+
+    // Weapon System
+    private enum WeaponType { Pistol, Rifle, Shotgun }
+    private WeaponType currentWeapon = WeaponType.Pistol;
+
+    private int MaxChamberAmmo = 6;
+    private int currentChamberAmmo;
+    private int currentReserveAmmo;
+
+    private int pistolAmmo = 6, pistolReserve = 12;
+    private int rifleAmmo = 5, rifleReserve = 20;
+    private int shotgunAmmo = 2, shotgunReserve = 6;
 
     private void Start()
     {
@@ -41,11 +46,8 @@ public class Player : MonoBehaviour
             healthSlider.value = Health;
         }
 
-        currentChamberAmmo = MaxChamberAmmo;
-        currentReserveAmmo = MaxReserveAmmo;
-        UpdateAmmoText();
-
         originalScale = transform.localScale;
+        animator = GetComponent<Animator>();
 
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -53,7 +55,7 @@ public class Player : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        animator = GetComponent<Animator>();
+        OnWeaponSwitch(); // Initialize weapon stats
     }
 
     private void Update()
@@ -71,9 +73,7 @@ public class Player : MonoBehaviour
         float movement = Input.GetAxis("Horizontal");
         float movementSpeedModifier = isCrouching ? 0.5f : 1f;
 
-        // Animation control
         animator.SetFloat("Move", Mathf.Abs(movement));
-        Debug.Log("movement:" + movement);
 
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed * movementSpeedModifier;
 
@@ -104,12 +104,18 @@ public class Player : MonoBehaviour
             nearbyEvidence = null;
         }
 
-        
-    }
-
-    public void SetPaused(bool paused)
-    {
-        isPaused = paused;
+        // Scroll wheel weapon switching
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll > 0f)
+        {
+            currentWeapon = (WeaponType)(((int)currentWeapon + 1) % 3);
+            OnWeaponSwitch();
+        }
+        else if (scroll < 0f)
+        {
+            currentWeapon = (WeaponType)(((int)currentWeapon + 2) % 3);
+            OnWeaponSwitch();
+        }
     }
 
     private void RotateWeaponTowardsMouse()
@@ -127,9 +133,6 @@ public class Player : MonoBehaviour
             isCrouching = true;
             transform.localScale = new Vector3(originalScale.x, originalScale.y / 2, originalScale.z);
             transform.position -= new Vector3(0, originalScale.y / 4, 0);
-            // animator.SetBool("IsWalking", false);
-            // animator.SetBool("Idle", false);
-            // animator.SetBool("IsCrouch", true);
         }
     }
 
@@ -137,7 +140,7 @@ public class Player : MonoBehaviour
     {
         if (isCrouching)
         {
-            isCrouching = false;  // <-- MUST BE HERE
+            isCrouching = false;
             transform.localScale = originalScale;
             transform.position += new Vector3(0, originalScale.y / 4, 0);
         }
@@ -151,8 +154,21 @@ public class Player : MonoBehaviour
         {
             if (!IsFacingMouseDirection()) return;
 
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            if (currentWeapon == WeaponType.Shotgun)
+            {
+                for (int i = -1; i <= 1; i++)
+                {
+                    Quaternion spread = firePoint.rotation * Quaternion.Euler(0, 0, i * 5f);
+                    Instantiate(bulletPrefab, firePoint.position, spread);
+                }
+            }
+            else
+            {
+                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            }
+
             currentChamberAmmo--;
+            UpdateCurrentWeaponAmmo();
             UpdateAmmoText();
 
             Vector3 recoilDirection = transform.rotation.y == 0 ? Vector3.left : Vector3.right;
@@ -229,8 +245,6 @@ public class Player : MonoBehaviour
             return;
         }
 
-        Debug.Log("TakeDamage");
-
         Health -= 1;
         Health = Mathf.Clamp(Health, 0, MaxHealth);
         UpdateHealthSlider();
@@ -283,6 +297,49 @@ public class Player : MonoBehaviour
         }
     }
 
+    void OnWeaponSwitch()
+    {
+        switch (currentWeapon)
+        {
+            case WeaponType.Pistol:
+                MaxChamberAmmo = 6;
+                currentChamberAmmo = pistolAmmo;
+                currentReserveAmmo = pistolReserve;
+                break;
+            case WeaponType.Rifle:
+                MaxChamberAmmo = 5;
+                currentChamberAmmo = rifleAmmo;
+                currentReserveAmmo = rifleReserve;
+                break;
+            case WeaponType.Shotgun:
+                MaxChamberAmmo = 2;
+                currentChamberAmmo = shotgunAmmo;
+                currentReserveAmmo = shotgunReserve;
+                break;
+        }
+
+        UpdateAmmoText();
+    }
+
+    void UpdateCurrentWeaponAmmo()
+    {
+        switch (currentWeapon)
+        {
+            case WeaponType.Pistol:
+                pistolAmmo = currentChamberAmmo;
+                pistolReserve = currentReserveAmmo;
+                break;
+            case WeaponType.Rifle:
+                rifleAmmo = currentChamberAmmo;
+                rifleReserve = currentReserveAmmo;
+                break;
+            case WeaponType.Shotgun:
+                shotgunAmmo = currentChamberAmmo;
+                shotgunReserve = currentReserveAmmo;
+                break;
+        }
+    }
+
     public void Reload()
     {
         if (currentReserveAmmo > 0 && currentChamberAmmo < MaxChamberAmmo)
@@ -293,6 +350,7 @@ public class Player : MonoBehaviour
             currentChamberAmmo += ammoToReload;
             currentReserveAmmo -= ammoToReload;
 
+            UpdateCurrentWeaponAmmo();
             UpdateAmmoText();
             PlayReloadSound();
         }
@@ -305,7 +363,18 @@ public class Player : MonoBehaviour
     public void RefillAmmo(int chamberAmount, int reserveAmount)
     {
         currentChamberAmmo = Mathf.Min(currentChamberAmmo + chamberAmount, MaxChamberAmmo);
-        currentReserveAmmo = Mathf.Min(currentReserveAmmo + reserveAmount, MaxReserveAmmo);
+        currentReserveAmmo = Mathf.Min(currentReserveAmmo + reserveAmount, MaxChamberAmmo * 2);
+        UpdateCurrentWeaponAmmo();
         UpdateAmmoText();
+    }
+    public void RestoreHealth(float amount)
+    {
+        Health = Mathf.Min(Health + amount, MaxHealth);
+        UpdateHealthSlider();
+    }
+
+    public void SetPaused(bool paused)
+    {
+        isPaused = paused;
     }
 }
